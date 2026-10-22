@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Princess Sarah ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a0826 0%, #4a0e2e 50%, #1a0826 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        /* Floating Hearts Background */
+        .bg-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.3);
+            font-size: 20px;
+            animation: float 8s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            max-width: 420px;
+            height: 580px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 30px 25px 80px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.6s ease-in-out;
+            pointer-events: none;
+        }
+
+        .page.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+
+        .page.exit {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #ff758c;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 117, 140, 0.5);
+        }
+
+        p {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #f1f1f1;
+            font-weight: 300;
+        }
+
+        .highlight {
+            color: #ff758c;
+            font-weight: 600;
+        }
+
+        /* Heart Icon Animation */
+        .main-heart {
+            font-size: 70px;
+            color: #ff4b2b;
+            animation: pulse 1.2s infinite;
+            margin: 20px 0;
+            filter: drop-shadow(0 0 15px rgba(255, 75, 43, 0.6));
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        /* Photo Frames */
+        .photo-frame {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid #ff758c;
+            box-shadow: 0 0 20px rgba(2ff, 117, 140, 0.6);
+            margin-bottom: 15px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+
+        /* Wish Cards */
+        .reason-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 18px;
+            border-radius: 15px;
+            margin: 8px 0;
+            width: 100%;
+            border-left: 4px solid #ff758c;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        /* Navigation Buttons */
+        .nav-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+            transition: 0.3s;
+            z-index: 20;
+        }
+
+        .nav-btn:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
+        /* Page Indicator */
+        .indicator {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(0, 0, 0, 0.2);
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-hearts" id="bgHearts"></div>
+
+    <div class="container">
+        
+        <!-- PAGE 1: Intro -->
+        <div class="page active" id="p1">
+            <div class="indicator">Page 1 of 6</div>
+            <div class="main-heart">💖</div>
+            <h1>Hey Sarah...</h1>
+            <p>16 November aane mein abhi thode din baqi hain, lekin mera dil bilkul sabar nahi kar raha tha...</p>
+            <p style="margin-top: 15px;">Aap ke liye ek choti si surprise world banayi hai. Ready ho?</p>
+            <button class="nav-btn" onclick="nextPage(1)">Tap to Begin ✨</button>
+        </div>
+
+        <!-- PAGE 2: Advance Wish -->
+        <div class="page" id="p2">
+            <div class="indicator">Page 2 of 6</div>
+            <div class="photo-frame">👑</div>
+            <h1>Advance Wish!</h1>
+            <p><span class="highlight">Advance Happy Birthday My Love! ❤️</span></p>
+            <p style="margin-top: 10px;">Duniya ki sabse pyari aur khoobsurat larki ko birthday ki dher sari advance mubarakan! Tum meri zindagi ka sab se haseen hissa ho.</p>
+            <button class="nav-btn" onclick="nextPage(2)">Next Page 🌹</button>
+        </div>
+
+        <!-- PAGE 3: Why You Are Special -->
+        <div class="page" id="p3">
+            <div class="indicator">Page 3 of 6</div>
+            <h1>Why You Are Special</h1>
+            <div class="reason-box">✨ Tumhari muskaan meri saari thakan door kar deti hai.</div>
+            <div class="reason-box">🌹 Tumhara masoom dil aur baatein bohot pyari hain.</div>
+            <div class="reason-box">💖 Tumhare sath guzra har pal mere liye khaas hota hai.</div>
+            <button class="nav-btn" onclick="nextPage(3)">Continue 💕</button>
+        </div>
+
+        <!-- PAGE 4: Romantic Note -->
+        <div class="page" id="p4">
+            <div class="indicator">Page 4 of 6</div>
+            <div class="main-heart" style="font-size: 50px;">💌</div>
+            <h1>For You, Always...</h1>
+            <p>Main shukr ada karta hoon ke tum
